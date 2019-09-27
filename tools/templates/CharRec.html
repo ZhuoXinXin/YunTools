@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字识别</title>
+
+</head>
+<body>
+<input type="button" value="返回菜单" onclick="location.href='/Menu/'"><br>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="img">
+    <button type="submit">图片识别</button>
+    <button type="button" onclick="location.href='/result_down/'">结果下载</button>
+</form>
+<l1>识别结果如下:</l1>
+<br>
+{% if error != '0' %}
+    {{ error }}
+{% else %}
+    {% for i in realresult %}
+        {{ i }}<br>
+    {% endfor %}
+{% endif %}
+</body>
+</html>

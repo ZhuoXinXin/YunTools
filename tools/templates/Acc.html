@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>厦门公积金贷款评估</title>
+    <script>
+        function calc() {
+            var js = parseFloat(document.getElementById("js").value);
+            var year = parseFloat(document.getElementById("year").value);
+            var ye = parseFloat(document.getElementById("ye").value);
+            var xs = parseFloat(document.getElementById("xs").value);
+            var result = (js * 12 * year * 0.35 + ye) * xs
+            console.log(js)
+            console.log(year)
+            console.log(ye)
+            console.log(xs)
+            document.getElementById("result").innerHTML = result;
+            document.getElementById("result").style.display = "block"
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="返回菜单" onclick="location.href='/Menu/'">
+<form action="form_action.asp" method="get">
+    <p>近一年月平均缴交基数: <input type="text" id="js"/></p>
+    <p>贷款年限: <input type="text" id="year"/></p>
+    <p>帐户余额: <input type="text" id="ye"/></p>
+    <p>流动系数: <input type="text" id="xs" value='0.6'/></p>
+    <button type="button" onclick='calc()'>计算</button>
+    <input type="reset" onclick='document.getElementById("result").style.display="none";' value="重置">
+    <p id="result" style="display:none;"></p>
+</form>
+</body>
+</html>
